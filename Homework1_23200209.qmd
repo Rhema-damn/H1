@@ -1,0 +1,28 @@
+---
+title:   "<span style='color: #FFFF00;'>Advanced Data Programming with R</span>"
+subtitle: "<span style='color: #FFFF00;'>Homework 1</span>"
+author: "Rhema Simon (23200209)"
+format: pdf
+editor: visual
+---
+
+# Introduction
+
+The **'mtcars'** dataset is a classic dataset often used for regression analysis and exploratory data analysis in R. It contains data about various car models from the 1970s, including information on miles per gallon (mpg), weight (wt), horsepower (hp), and other features.
+
+# Descriptive Statistics
+
+Let's look at some descriptive statistics for `mpg` and `wt`:
+
+```{r,echo=FALSE}
+summary(mtcars[, c("mpg", "wt")])
+library(ggplot2)
+
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  geom_smooth(method = "lm", col = "blue") +
+  labs(title = "Scatter Plot of Weight vs. Miles Per Gallon",
+       x = "Weight (1000 lbs)",
+       y = "Miles Per Gallon (mpg)")
+```
+The plot above shows the *relationship between the weight of the cars (in 1000 lbs) and their miles per gallon (mpg)*. We can see that there is a **negative correlation** between weight and mpg, meaning that heavier cars tend to have lower mpg.
